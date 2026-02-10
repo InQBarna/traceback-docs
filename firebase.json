@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "site": "traceback-docs",
+    "public": "_site",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": true,
+    "rewrites": [
+      {
+        "source": "/**",
+        "destination": "/404.html"
+      }
+    ]
+  }
+}

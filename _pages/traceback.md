@@ -101,7 +101,7 @@ Traceback provides:
 
 ## Next Steps
 
-- Create your first dynamic link
-- Configure your custom domain
-- Integrate the iOS or Android SDK
+- [Create your first dynamic link](/create-link/)
+- [Configure your custom domain](/setup-custom-domain/)
+- [Integrate the iOS or Android SDK](/receive-link-ios/)
 

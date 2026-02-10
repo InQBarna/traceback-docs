@@ -1,21 +1,21 @@
-- title: Landing
+- title: Traceback dynamic links
   url: /traceback
-- title: Create Dynamic Link
+- title: Create a traceback Dynamic Link
   url: /create-link
-- title: REST Dynamic Link Creation
+- title: Create Dynamic Link with the REST API
   url: /create-link-rest
-- title: Manual URL Construction
+- title: Create Dynamic Link manually
   url: /create-link-manual
-- title: Receive iOS
+- title: Receive Dynamic Links on iOS
   url: /receive-link-ios
-- title: Receive Android
+- title: Receive Dynamic Links on Android
   url: /receive-link-android
-- title: Custom Domain
+- title: Set Up a Custom Domain
   url: /setup-custom-domain
-- title: Analytics
+- title: View Analytics Data
   url: /view-analytics-data
-- title: Debug
+- title: Debug Traceback Links
   url: /debug-traceback-links
-- title: Social Metadata
+- title: Generate Link Previews with Social Metadata
   url: /generate-links-with-social-metadata
 

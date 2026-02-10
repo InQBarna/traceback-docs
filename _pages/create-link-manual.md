@@ -4,6 +4,8 @@ title: Create Dynamic Links Manually
 permalink: /create-link-manual/
 ---
 
+# Create Dynamic Link manually
+
 When opened, Traceback resolves the parameters and routes the user to the correct destination based on platform and install state.
 
 ---
