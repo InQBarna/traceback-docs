@@ -74,7 +74,8 @@ Content-Type: application/json
    "appleAffiliateToken": "affiliate123",
    "appleCampaignText": "summer_campaign",
    "appleMediaType": "8",
-   "appleProviderId": "provider456"
+   "appleProviderId": "provider456",
+   "clipboardTrackingEnabled": true
  }  
  ```
 
@@ -93,6 +94,7 @@ The REST API returns:
    "image": "https://example.com/image.png",
    "followLink": "https://example.com/products/summer",
    "expires": "2025-12-31T23:59:59.000Z",
+   "clipboardTrackingEnabled": true,
    "campaignUrl": "https://your-project.web.app/summer-promo",
    "createdAt": "2025-01-15T10:30:00.000Z",
    "updatedAt": "2025-01-15T10:30:00.000Z"
@@ -104,6 +106,13 @@ The REST API returns:
 ## Schema and Parameters
 
 For a detailed description and contract look at `https://${YOUR_DOMAIN}//api-doc.yaml`.
+
+### `clipboardTrackingEnabled` (boolean, optional, default: `true`)
+
+Controls whether the preview page copies a unique URL to the clipboard before redirecting the user to the App Store or Play Store.
+
+- **`true`** (default): The preview page is shown with an "Open" button. On tap, a unique URL is copied to the clipboard and the user is redirected to the store. After install, the app reads the clipboard to match the install to this campaign (per-install attribution).
+- **`false`**: No preview page interaction is shown. The user is redirected automatically after a short delay without any clipboard copy. Use this when per-install attribution via clipboard is not needed.
 
 ---
 
