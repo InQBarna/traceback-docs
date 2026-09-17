@@ -75,6 +75,7 @@ Content-Type: application/json
    "appleCampaignText": "summer_campaign",
    "appleMediaType": "8",
    "appleProviderId": "provider456",
+   "otherFallbackLink": "https://example.com/fallback",
    "clipboardTrackingEnabled": true
  }  
  ```
@@ -96,6 +97,7 @@ curl -X POST "https://${YOUR_DOMAIN}/v1_create_campaign" \
     "appleCampaignText": "summer_campaign",
     "appleMediaType": "8",
     "appleProviderId": "provider456",
+    "otherFallbackLink": "https://example.com/fallback",
     "clipboardTrackingEnabled": true
   }'
 ```
@@ -117,6 +119,7 @@ The REST API returns:
    "image": "https://example.com/image.png",
    "followLink": "https://example.com/products/summer",
    "expires": "2025-12-31T23:59:59.000Z",
+   "otherFallbackLink": "https://example.com/fallback",
    "clipboardTrackingEnabled": true,
    "campaignUrl": "https://your-project.web.app/summer-promo",
    "createdAt": "2025-01-15T10:30:00.000Z",
@@ -153,6 +156,14 @@ When the preview page redirects an iOS visitor to the App Store, these values ar
 | `appleProviderId` | `pt` | Apple affiliate provider ID | `provider456` |
 
 These are only used for the App Store redirect on iOS; they have no effect on Android or desktop routing.
+
+### `otherFallbackLink` (string, optional)
+
+The final fallback destination on **desktop only** — used when the visitor is on desktop, has no explicit `link` parameter, and the campaign has no `followLink`. This is the equivalent of the legacy Firebase Dynamic Links `ofl` parameter.
+
+Fallback order on desktop: `link` query parameter → the campaign's `followLink` → `otherFallbackLink` → no redirect (the preview page stays visible).
+
+`otherFallbackLink` is never used on iOS or Android. A "dead end" there — this Traceback install has no app configured for the visitor's platform — instead falls back to the `link` query parameter (shown as an "Open in browser" button) if present, or an "app not available yet" message if not. See [Manual URL Construction](/create-link-manual/#behavior-notes) for the full iOS/Android behavior.
 
 ---
 

@@ -53,6 +53,7 @@ Each document in `records` supports the following fields:
   "appleCampaignText": "summer_campaign",
   "appleMediaType": "8",
   "appleProviderId": "provider456",
+  "otherFallbackLink": "https://example.com/fallback",
   "clipboardTrackingEnabled": true
 }
 ```
@@ -63,6 +64,7 @@ Notes on specific fields:
 - `title`, `description`, `image`: optional social metadata shown when the link is opened or shared on social platforms. See [Generate Link Previews with Social Metadata](/generate-links-with-social-metadata/).
 - `expires`: stored as a Firestore `Timestamp`, not a string. When creating the document from the Console UI, use the Console's timestamp field type.
 - `appleAffiliateToken`, `appleCampaignText`, `appleMediaType`, `appleProviderId`: optional Apple App Store campaign parameters, described in [REST Dynamic Link Creation](/create-link-rest/).
+- `otherFallbackLink`: optional URL, used as the final fallback destination on **desktop only** when no `link` parameter was supplied. Not used on iOS/Android. See [REST Dynamic Link Creation](/create-link-rest/) for the full behavior description.
 - `clipboardTrackingEnabled`: optional boolean, defaults to `true` when omitted. See [REST Dynamic Link Creation](/create-link-rest/) for the full behavior description.
 
 ---

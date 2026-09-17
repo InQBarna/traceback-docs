@@ -26,6 +26,7 @@ The following table lists the supported parameters.
 | `sd` | No | Social share description, overrides the Firestore-stored description for this URL only | `Open this content in the app` |
 | `si` | No | Social share image URL, overrides the Firestore-stored image for this URL only | `https://example.com/image.png` |
 | `cte` | No | Disables clipboard tracking on the preview page (`cte=false`) for links with no matching Firestore campaign | `false` |
+| `ofl` | No | Desktop-only fallback destination when no `link` param is supplied, for links with no matching Firestore campaign | `https://example.com/fallback` |
 
 ---
 
@@ -49,6 +50,8 @@ Social metadata URLs should be publicly accessible.
 - If a link is opened without a `utm_source` but the browser sends a `Referer` header, Traceback automatically fills `utm_source` with the referrer's domain and sets `utm_medium=referral_traceback`, so referral traffic is still attributed even without explicit UTM parameters.
 - `st`/`sd`/`si` are resolved server-side when the preview page is rendered, so they affect both the `<meta>` tags used by social-media crawlers (WhatsApp, iMessage, Slack, etc.) and what's shown in the browser — they never change the underlying Firestore document, only the response for this specific request. This is why they're safe to accept directly from the URL, unlike the Apple campaign parameters below.
 - `cte=false` only takes effect when the path has no matching Firestore campaign (clipboard tracking then defaults to enabled). For an existing campaign, `clipboardTrackingEnabled` is a value the link's creator chose deliberately via the REST API, Firestore, or Traceback Manager — the URL can never override it, for the same reason `at`/`ct`/`mt`/`pt` can't: it would let anyone who forwards the link silently flip a setting they don't own.
+- `ofl` only takes effect when the path has no matching Firestore campaign, for the same reason as `cte`: for an existing campaign, `otherFallbackLink` is a destination the creator chose deliberately, and the URL can never redirect visitors somewhere else instead.
+- `otherFallbackLink`/`ofl` is **desktop-only**. On iOS or Android, when this Traceback install has no app configured for that platform (a "dead end"), the `link` parameter is used as a browser fallback instead — the button is enabled and relabeled "Open in browser" — alongside the existing "app not available yet" message. If there's no `link` parameter either, the button is disabled and only the message is shown. Fallback order on desktop is `link` → the campaign's `followLink` → `otherFallbackLink`/`ofl` → no redirect; on iOS/Android it's `link` → app/store route → "app not available" message.
 
 ---
 
@@ -64,7 +67,7 @@ The following table lists the old legacy firebase dynamic links
 | `apn` | No | UNSUPPORTED* Android package name | `com.example.app` |
 | `afl` | No | UNSUPPORTED* Android fallback URL | `https://example.com/android` |
 | `ifl` | No | TODO\*\* iOS fallback URL | `https://example.com/ios` |
-| `ofl` | No | TODO\*\* Web fallback URL | `https://example.com/web` |
+| `ofl` | No | Web/desktop fallback URL | `https://example.com/web` |
 | `utm_source` | No | Attribution source | `newsletter` |
 | `utm_medium` | No | Attribution medium | `email` |
 | `utm_campaign` | No | Campaign name | `spring_launch` |
