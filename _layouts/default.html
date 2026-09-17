@@ -2,22 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: "Traceback Docs" }}</title>
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <aside class="sidebar">
-    <h2>Traceback Docs</h2>
-    <ul>
-      {% for item in site.data.navigation %}
-        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+    <a class="brand" href="/">
+      <span class="brand-mark">T</span>
+      <span class="brand-name">Traceback Docs</span>
+    </a>
+
+    <div class="sidebar-search">
+      <input type="text" id="nav-search" placeholder="Search docs&hellip;" autocomplete="off">
+    </div>
+
+    <nav id="nav-groups">
+      {% for section in site.data.navigation %}
+        <div class="nav-group">
+          <p class="nav-group-label">{{ section.group }}</p>
+          <ul>
+            {% for item in section.items %}
+              {% assign item_url = item.url | append: "/" %}
+              <li class="nav-item">
+                <a href="{{ item.url }}"{% if page.url == item_url or page.url == item.url %} class="active"{% endif %}>{{ item.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       {% endfor %}
-    </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="/feed.xml">Subscribe via RSS</a>
+    </div>
   </aside>
-  <main class="content">
-    {{ content }}
-  </main>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        {% if page.url == "/" %}
+          Docs
+        {% else %}
+          Docs / <span>{{ page.title | default: "Untitled" }}</span>
+        {% endif %}
+      </div>
+      <div class="topbar-actions">
+        <span class="version-tag">v{{ site.traceback_version }}</span>
+        <a class="edit-link" href="https://github.com/InQBarna/traceback-docs/edit/main/{{ page.path }}" target="_blank" rel="noopener">Edit on GitHub</a>
+      </div>
+    </div>
+
+    <main class="content{% if page.url == "/" %} home{% endif %}">
+      {{ content }}
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var input = document.getElementById('nav-search');
+      if (!input) return;
+      var groups = document.querySelectorAll('#nav-groups .nav-group');
+      input.addEventListener('input', function () {
+        var q = input.value.trim().toLowerCase();
+        groups.forEach(function (group) {
+          var anyVisible = false;
+          group.querySelectorAll('.nav-item').forEach(function (li) {
+            var match = li.textContent.toLowerCase().indexOf(q) !== -1;
+            li.style.display = match ? '' : 'none';
+            if (match) anyVisible = true;
+          });
+          group.style.display = anyVisible ? '' : 'none';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
-
