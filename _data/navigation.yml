@@ -1,21 +1,30 @@
-- title: Traceback dynamic links
-  url: /traceback
-- title: Create a traceback Dynamic Link
-  url: /create-link
-- title: Create Dynamic Link with the REST API
-  url: /create-link-rest
-- title: Create Dynamic Link manually
-  url: /create-link-manual
-- title: Receive Dynamic Links on iOS
-  url: /receive-link-ios
-- title: Receive Dynamic Links on Android
-  url: /receive-link-android
-- title: Set Up a Custom Domain
-  url: /setup-custom-domain
-- title: View Analytics Data
-  url: /view-analytics-data
-- title: Debug Traceback Links
-  url: /debug-traceback-links
-- title: Generate Link Previews with Social Metadata
-  url: /generate-links-with-social-metadata
-
+- group: Overview
+  items:
+    - title: Traceback dynamic links
+      url: /traceback
+- group: Create a Link
+  items:
+    - title: Create a traceback Dynamic Link
+      url: /create-link
+    - title: Create Dynamic Link with the REST API
+      url: /create-link-rest
+    - title: Create Dynamic Link manually
+      url: /create-link-manual
+    - title: Create Dynamic Link via Firestore
+      url: /create-link-firestore
+- group: Platform Integration
+  items:
+    - title: Receive Dynamic Links on iOS
+      url: /receive-link-ios
+    - title: Receive Dynamic Links on Android
+      url: /receive-link-android
+    - title: Set Up a Custom Domain
+      url: /setup-custom-domain
+- group: Operate
+  items:
+    - title: View Analytics Data
+      url: /view-analytics-data
+    - title: Debug Traceback Links
+      url: /debug-traceback-links
+    - title: Generate Link Previews with Social Metadata
+      url: /generate-links-with-social-metadata

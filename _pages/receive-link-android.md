@@ -65,7 +65,7 @@ At runtime:
 
 ## Next Steps
 
-- Configure a custom domain for production links
-- Create and test dynamic links
-- Review available attribution and analytics features
+- [Configure a custom domain](/setup-custom-domain/) for production links
+- [Create and test dynamic links](/create-link/)
+- [Review available attribution and analytics features](/view-analytics-data/)
 

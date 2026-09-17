@@ -35,6 +35,18 @@ theme: minima
 plugins:
   - jekyll-feed
 
+collections:
+  pages:
+    output: true
+
+# Ensures every page (including new top-level .md files that forget to set a
+# layout) uses our custom sidebar layout instead of minima's own layouts.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

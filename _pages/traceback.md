@@ -59,11 +59,9 @@ High-level flow:
 1. A Traceback link is opened.
 2. The platform and install state are detected.
 3. The user is routed:
-
    - App installed → Open app via Universal Links / App Links
    - App not installed → Redirect to store
    - After install → App retrieves deferred link + payload
-
 4. The app receives metadata and attribution data.
 
 ---

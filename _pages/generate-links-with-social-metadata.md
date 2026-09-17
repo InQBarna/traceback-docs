@@ -37,15 +37,17 @@ Using Traceback Manager you can:
 
 ## Create links manually using supported Social Metadata Parameters
 
-TODO\* The following parameters can be added to a Traceback link:
+The following parameters can be added to any Traceback link:
 
 | Parameter | Required | Description | Example |
 |-----------|----------|-------------|---------|
-| `st` | No | TODO\* Social title | `Check out this article` |
-| `sd` | No | TODO\* Social description | `Learn how to build dynamic links with Traceback` |
-| `si` | No | TODO\* Social image URL | `https://example.com/thumbnail.png` |
+| `st` | No | Social title | `Check out this article` |
+| `sd` | No | Social description | `Learn how to build dynamic links with Traceback` |
+| `si` | No | Social image URL | `https://example.com/thumbnail.png` |
 
-### TODO\* Example Link with Social Metadata
+These are resolved server-side when the link is opened, so they override the Firestore-stored title/description/image (or the app's default metadata, for a manual link with no campaign) in both the `<meta>` tags read by social-media crawlers and the page shown to the user — for that specific URL only.
+
+### Example Link with Social Metadata
 
 ```
 https://${YOUR_DOMAIN}.com/?link=https://example.com/article/123&st=Check+this+out&sd=Learn+how+to+use+Traceback&si=https://example.com/image.png
@@ -67,7 +69,7 @@ When shared on supported platforms, the link will display a preview using the pr
 
 ## Next Steps
 
-- Use Traceback Manager or manual URL construction to create links with social metadata.
+- Use Traceback Manager or [manual URL construction](/create-link-manual/) to create links with social metadata.
 - Share links in test environments to verify previews.
-- Combine with analytics to measure engagement from shared links.
+- Combine with [analytics](/view-analytics-data/) to measure engagement from shared links.
 

@@ -63,7 +63,7 @@ https://firebase.google.com/docs/hosting/custom-domain
 
 ## Next Steps
 
-- Create dynamic links using your custom domain
-- Configure link handling in your mobile apps
-- Review analytics and attribution data
+- [Create dynamic links](/create-link/) using your custom domain
+- Configure link handling in your [iOS](/receive-link-ios/) and [Android](/receive-link-android/) apps
+- [Review analytics and attribution data](/view-analytics-data/)
 

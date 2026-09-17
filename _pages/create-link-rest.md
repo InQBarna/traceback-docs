@@ -79,6 +79,29 @@ Content-Type: application/json
  }  
  ```
 
+### curl example
+
+```bash
+curl -X POST "https://${YOUR_DOMAIN}/v1_create_campaign" \
+  -H "x-traceback-api-key: ${YOUR_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "path": "/summer-promo",
+    "title": "Summer Promo",
+    "description": "Summer promotional campaign",
+    "image": "https://example.com/image.png",
+    "followLink": "https://example.com/products/summer",
+    "expires": "2025-12-31T23:59:59Z",
+    "appleAffiliateToken": "affiliate123",
+    "appleCampaignText": "summer_campaign",
+    "appleMediaType": "8",
+    "appleProviderId": "provider456",
+    "clipboardTrackingEnabled": true
+  }'
+```
+
+`title`, `description`, and `image` are the social metadata parameters — see [Social metadata parameters](#social-metadata-parameters-all-optional) below.
+
 ---
 
 ## Response Behavior
@@ -107,12 +130,29 @@ The REST API returns:
 
 For a detailed description and contract look at `https://${YOUR_DOMAIN}//api-doc.yaml`.
 
+### Social metadata parameters (all optional)
+
+`title`, `description`, and `image` control the rich preview shown when the link is opened or shared on social platforms (WhatsApp, iMessage, Slack, etc.) — the same social metadata described in [Generate Link Previews with Social Metadata](/generate-links-with-social-metadata/). They map to that page's `st`/`sd`/`si` manual-URL parameters, just expressed as regular JSON fields here instead of query-string shorthand.
+
 ### `clipboardTrackingEnabled` (boolean, optional, default: `true`)
 
 Controls whether the preview page copies a unique URL to the clipboard before redirecting the user to the App Store or Play Store.
 
 - **`true`** (default): The preview page is shown with an "Open" button. On tap, a unique URL is copied to the clipboard and the user is redirected to the store. After install, the app reads the clipboard to match the install to this campaign (per-install attribution).
 - **`false`**: No preview page interaction is shown. The user is redirected automatically after a short delay without any clipboard copy. Use this when per-install attribution via clipboard is not needed.
+
+### Apple App Store campaign parameters (all optional)
+
+When the preview page redirects an iOS visitor to the App Store, these values are appended to the App Store URL as Apple's own affiliate/campaign tracking parameters:
+
+| Parameter | Maps to App Store param | Description | Example |
+|-----------|--------------------------|--------------|---------|
+| `appleAffiliateToken` | `at` | Your Apple affiliate token | `affiliate123` |
+| `appleCampaignText` | `ct` | Freeform campaign identifier for attribution reporting | `summer_campaign` |
+| `appleMediaType` | `mt` | Apple media type code | `8` |
+| `appleProviderId` | `pt` | Apple affiliate provider ID | `provider456` |
+
+These are only used for the App Store redirect on iOS; they have no effect on Android or desktop routing.
 
 ---
 
@@ -124,7 +164,7 @@ At minimum, the path value provided must be valid and non existing. Else, the cr
 
 ## Next Steps
 
-- Learn how to construct links manually using URL parameters
-- Integrate link creation into your backend services
-- Configure how links are handled in your mobile apps
+- [Learn how to construct links manually using URL parameters](/create-link-manual/)
+- [Create or inspect links directly via Firestore](/create-link-firestore/)
+- Configure how links are handled in your [iOS](/receive-link-ios/) and [Android](/receive-link-android/) apps
 

@@ -65,7 +65,7 @@ At runtime:
 
 ## Next Steps
 
-- Configure Android link handling
-- Set up a custom domain
-- Create and test dynamic links
+- [Configure Android link handling](/receive-link-android/)
+- [Set up a custom domain](/setup-custom-domain/)
+- [Create and test dynamic links](/create-link/)
 

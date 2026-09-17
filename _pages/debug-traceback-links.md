@@ -87,7 +87,7 @@ Additional tools for inspecting link resolution and attribution flows will be do
 
 ## Next Steps
 
-- Verify your custom domain configuration
-- Review link parameters and routing rules
-- Inspect recorded analytics and event data
+- [Verify your custom domain configuration](/setup-custom-domain/)
+- Review [link parameters](/create-link-manual/) and routing rules
+- [Inspect recorded analytics and event data](/view-analytics-data/)
 

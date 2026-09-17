@@ -70,7 +70,7 @@ This includes:
 The REST API endpoint:
 
 ```json
-POST https://${YOUR_DOMAIN}/v1_campaign_analytics/%20summer-promo?durationDays=7&endDate=2026-01-10
+GET https://${YOUR_DOMAIN}/v1_campaign_analytics?campaignPath=/summer-promo&durationDays=7&endDate=2026-01-10
 x-traceback-api-key: ${YOUR_API_KEY}
 ```
 
@@ -111,7 +111,7 @@ For a detailed description and contract look at `https://${YOUR_DOMAIN}//api-doc
 
 ## Next Steps
 
-- Create and distribute dynamic links
-- Verify link routing behavior
+- [Create and distribute dynamic links](/create-link/)
+- [Verify link routing behavior](/debug-traceback-links/)
 - Use your existing analytics infrastructure to inspect recorded events
 

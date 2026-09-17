@@ -13,7 +13,7 @@ This page describes the available creation methods.
 
 ## Create Links from Firebase Console (Firestore)
 
-If Traceback is installed as a Firebase Extension, links are stored and managed inside your project’s Firestore database.
+If Traceback is installed as a Firebase Extension, links are stored and managed inside your project's Firestore database.
 
 Typical workflow:
 
@@ -28,6 +28,11 @@ This method is recommended for:
 - Development
 - Automated workflows
 - Direct infrastructure control
+
+See [Create Dynamic Links via Firestore](/create-link-firestore/).
+
+Includes the full Firestore document schema and a JSON example.
+{: .doc-caption}
 
 ---
 
@@ -56,11 +61,10 @@ This method is recommended for:
 
 You can programmatically create Traceback links using the REST API.
 
-See:
+See [REST Dynamic Link Creation](/create-link-rest/).
 
-- **REST Dynamic Link Creation**
-
-(This documentation describes the high-level workflow and request structure.)
+This documentation describes the high-level workflow and request structure.
+{: .doc-caption}
 
 ---
 
@@ -68,19 +72,17 @@ See:
 
 Traceback links can also be built manually by composing a URL with the appropriate parameters.
 
-See:
+See [Manual URL Construction](/create-link-manual/).
 
-- **Manual URL Construction**
-
-(A full parameter reference is provided in that section.)
+A full parameter reference is provided in that section.
+{: .doc-caption}
 
 ---
 
 ## Next Steps
 
 - Configure link handling in your app:
-  - Receive Dynamic Links (iOS)
-  - Receive Dynamic Links (Android)
-
-- Learn how to define routing parameters using manual URL construction.
+  - [Receive Dynamic Links (iOS)](/receive-link-ios/)
+  - [Receive Dynamic Links (Android)](/receive-link-android/)
+- [Learn how to define routing parameters using manual URL construction](/create-link-manual/)
 
