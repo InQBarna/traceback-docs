@@ -83,9 +83,9 @@ The following table lists the old legacy firebase dynamic links
 
 \** Features that will be supported in the future versions of traceback to enable a higher feature mapping between old fireabase dynamic links and traceback
 
-\*** Not accepted as manual URL parameters by design. Allowing `at`/`ct`/`mt`/`pt` to be set directly in the URL would let anyone append their own affiliate/campaign values to an existing link and hijack its Apple affiliate attribution. These are only settable server-side via the [REST API](/create-link-rest/) or [Firestore](/create-link-firestore/), where the value is controlled by whoever creates the link rather than whoever opens it. Support for overriding them through manual URL construction is under consideration but not yet decided.
+\*** Not accepted as manual URL parameters by design. Allowing `at`/`ct`/`mt`/`pt` to be set directly in the URL would let anyone append their own affiliate/campaign values to an existing link and hijack its Apple affiliate attribution. These are only settable server-side via the [REST API](/create-link-rest/), [Firestore](/create-link-firestore/), or the **Apple App Store Campaign** section of the Traceback Manager link form, where the value is controlled by whoever creates the link rather than whoever opens it. Support for overriding them through manual URL construction is under consideration but not yet decided.
 
-The Apple campaign parameters (`at`, `ct`, `mt`, `pt`) are already supported by Traceback today as `appleAffiliateToken`, `appleCampaignText`, `appleMediaType`, and `appleProviderId` — but only when creating a link via the [REST API](/create-link-rest/) or [Firestore](/create-link-firestore/).
+The Apple campaign parameters (`at`, `ct`, `mt`, `pt`) are already supported by Traceback today as `appleAffiliateToken`, `appleCampaignText`, `appleMediaType`, and `appleProviderId` — but only when creating a link via the [REST API](/create-link-rest/), [Firestore](/create-link-firestore/), or the Traceback Manager.
 
 ---
 

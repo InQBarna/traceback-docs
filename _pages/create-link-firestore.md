@@ -63,7 +63,7 @@ Notes on specific fields:
 - `path` (required): must start with `/` and be unique across all links.
 - `title`, `description`, `image`: optional social metadata shown when the link is opened or shared on social platforms. See [Generate Link Previews with Social Metadata](/generate-links-with-social-metadata/).
 - `expires`: stored as a Firestore `Timestamp`, not a string. When creating the document from the Console UI, use the Console's timestamp field type.
-- `appleAffiliateToken`, `appleCampaignText`, `appleMediaType`, `appleProviderId`: optional Apple App Store campaign parameters, described in [REST Dynamic Link Creation](/create-link-rest/).
+- `appleAffiliateToken`, `appleCampaignText`, `appleMediaType`, `appleProviderId`: optional Apple App Store campaign parameters, described in [REST Dynamic Link Creation](/create-link-rest/). The Traceback Manager sets the same fields from the **Apple App Store Campaign** section of its link form.
 - `otherFallbackLink`: optional URL, used as the final fallback destination on **desktop only** when no `link` parameter was supplied. Not used on iOS/Android. See [REST Dynamic Link Creation](/create-link-rest/) for the full behavior description.
 - `clipboardTrackingEnabled`: optional boolean, defaults to `true` when omitted. See [REST Dynamic Link Creation](/create-link-rest/) for the full behavior description.
 
